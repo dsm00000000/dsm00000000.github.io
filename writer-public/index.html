@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>writer — reescritura, adaptación ES/EN y documentación útil</title>
+  <meta name="description" content="Packs cerrados de reescritura, adaptación ES/EN y documentación útil. Trabajo async, precio fijo, cobro antes y entrega rápida.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#111111">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #666666;
+      --line: #dddddd;
+      --card: #fafafa;
+      --accent: #111111;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .block {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 18px;
+      background: var(--card);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    p { margin: 0 0 14px; }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 6px; }
+
+    .muted { color: var(--muted); }
+    .price { font-weight: 700; }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #ffffff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 11px 15px;
+      font-weight: 700;
+    }
+
+    .btn.secondary {
+      color: var(--fg);
+      background: transparent;
+    }
+
+    .kicker {
+      margin: 8px 0 0;
+      font-weight: 700;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 20px 16px 40px;
+      }
+
+      .block {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="block">
+      <span class="eyebrow">trabajo escrito, no consultoría abierta</span>
+      <h1>Texto claro para vender, explicar y ordenar mejor.</h1>
+      <p class="muted">Trabajo con negocios pequeños, micro-SaaS, operadores individuales y equipos ligeros que ya tienen una pieza o un proceso, pero no está lo bastante claro para funcionar bien.</p>
+      <p>Ofrezco tres packs cerrados: reescritura, adaptación ES/EN y documentación útil. Todo async, con precio fijo, cobro antes y una revisión razonable.</p>
+      <p><strong>Te respondo por email con alcance, precio y plazo cerrados si me envías una pieza o proceso concreto.</strong></p>
+      <p class="muted">Respuesta inicial: dentro de 24 horas laborables.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:daniel.sedano.moreno@gmail.com?subject=Consulta%20sobre%20pack%20de%20writing">Escribir por email</a>
+        <a class="btn secondary" href="#packs">Ver packs</a>
+      </div>
+      <p class="kicker">No escribo bonito. Escribo para que se entienda mejor, sirva mejor y se entregue sin fricción.</p>
+    </section>
+
+    <section class="block">
+      <h2>Cómo trabajo</h2>
+      <ul>
+        <li>brief mínimo por escrito</li>
+        <li>alcance cerrado</li>
+        <li>precio fijo</li>
+        <li>cobro por Stripe Payment Link antes de ejecutar</li>
+        <li>entrega por Google Doc</li>
+        <li>entrega rápida</li>
+        <li>una revisión razonable</li>
+      </ul>
+    </section>
+
+    <section id="packs" class="grid" aria-label="packs disponibles">
+      <article class="block">
+        <h3>Rewrite / Cleanup Pack</h3>
+        <p>Reescritura y limpieza de una pieza concreta ya existente para volverla más clara, directa y usable.</p>
+        <p class="muted">Ideal para hero, landing corta, página de servicios, email importante, FAQ visible o bloque de venta.</p>
+        <p class="price">Desde 90 € · 24–48 h</p>
+      </article>
+
+      <article class="block">
+        <h3>Adaptation Pack ES/EN</h3>
+        <p>Adaptación natural entre español e inglés, sin traducción literal ni tono robótico.</p>
+        <p class="muted">Ideal para landings, emails, onboarding, FAQs y mensajes automáticos.</p>
+        <p class="price">Desde 140 € · 48–72 h</p>
+      </article>
+
+      <article class="block">
+        <h3>Documentation Pack</h3>
+        <p>Conversión de conocimiento disperso o de un proceso repetido en documentación clara y útil para uso real.</p>
+        <p class="muted">Ideal para SOP simple, onboarding operativo, checklist, FAQ interna o guía interna.</p>
+        <p class="price">Desde 180 € · 72–96 h</p>
+      </article>
+    </section>
+
+    <section class="block">
+      <h2>Ejemplos de bloques que sí hago</h2>
+      <ul>
+        <li>hero</li>
+        <li>subtítulo y CTA</li>
+        <li>página de servicios</li>
+        <li>email clave</li>
+        <li>FAQ</li>
+        <li>onboarding</li>
+        <li>SOP simple</li>
+      </ul>
+    </section>
+
+    <section class="block two-col">
+      <div>
+        <h2>Sí</h2>
+        <ul>
+          <li>una pieza concreta</li>
+          <li>un bloque cerrado</li>
+          <li>texto listo para usar</li>
+          <li>trabajo async</li>
+        </ul>
+      </div>
+      <div>
+        <h2>No</h2>
+        <ul>
+          <li>consultoría abierta</li>
+          <li>discovery infinito</li>
+          <li>proyectos ambiguos sin alcance claro</li>
+          <li>calls como flujo normal</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Qué necesito para darte una propuesta cerrada</h2>
+      <p><strong>Escríbeme con: pieza/proceso + objetivo + idioma + fecha deseada.</strong></p>
+      <ul>
+        <li>pieza o proceso exacto</li>
+        <li>objetivo visible</li>
+        <li>material base disponible</li>
+        <li>idioma</li>
+        <li>fecha deseada</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>Filtro</h2>
+      <p><strong>No trabajo consultoría abierta, discovery infinito ni proyectos ambiguos sin alcance claro.</strong></p>
+      <p class="muted">Encaja mejor con negocios pequeños, micro-SaaS, freelancers con oferta visible, estudios ligeros y equipos pequeños que necesitan resolver una pieza concreta o documentar mejor un proceso.</p>
+    </section>
+
+    <section class="block">
+      <h2>Contacto</h2>
+      <p>Envíame una pieza concreta o un proceso concreto. Respondo con alcance, precio, método de cobro y plazo cerrados.</p>
+      <p><strong>Email:</strong> <a href="mailto:daniel.sedano.moreno@gmail.com">daniel.sedano.moreno@gmail.com</a></p>
+          </section>
+
+    <p class="footer">Sitio público mínimo para GitHub Pages. La operación real, los datos y la lógica viven aparte en el repo privado.</p>
+  </main>
+</body>
+</html>
