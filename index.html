@@ -2,14 +2,280 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>dsm00000000</title>
+  <meta name="description" content="Portada mínima con acceso a propertier y writer.">
+  <meta name="theme-color" content="#101114">
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --surface-soft: #fbfcfe;
+      --text: #101114;
+      --muted: #667085;
+      --line: #d9dee7;
+      --accent: #101114;
+      --accent-soft: #eef2f7;
+      --shadow: 0 10px 30px rgba(16, 17, 20, 0.06);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #ffffff 0%, #f5f7fa 42%, #eef2f7 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 18px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      padding: 20px 0 14px;
+    }
+
+    .hero-card,
+    .card {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      padding: 10px 0 18px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      margin: 0 0 12px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      max-width: 10ch;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      max-width: 60ch;
+      font-size: 1.05rem;
+      color: #243041;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(16, 17, 20, 0.14);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #1b1d22;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--accent-soft);
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .footer {
+      padding: 8px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .hero-card,
+      .card {
+        padding: 20px;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cta-row {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>dsm00000000</h1>
-  <ul>
-    <li><a href="./propertier.html">propertier</a></li>
-    <li><a href="./writer.html">writer</a></li>
-  </ul>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <a class="brand" href="./">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>dsm00000000</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Portada mínima</span>
+        <h1>dsm00000000</h1>
+        <p class="lead">Acceso directo a los proyectos públicos con una misma línea visual: sobria, clara y mínima.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="./propertier.html">Abrir propertier</a>
+          <a class="btn btn-secondary" href="./writer.html">Abrir writer</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Proyectos públicos">
+      <article class="card">
+        <h2>propertier</h2>
+        <p>Mallorca, compraventa, alquiler e inversión con criterio. Menos ruido, más filtro y más claridad documental.</p>
+        <a class="card-link" href="./propertier.html">Ir a propertier →</a>
+      </article>
+
+      <article class="card">
+        <h2>writer</h2>
+        <p>Reescritura, adaptación ES/EN y documentación útil con packs cerrados, trabajo async y entrega clara.</p>
+        <a class="card-link" href="./writer.html">Ir a writer →</a>
+      </article>
+    </section>
+
+    <p class="footer">Portada pública mínima. Cada proyecto mantiene su propia página y su propio enfoque.</p>
+  </main>
 </body>
 </html>

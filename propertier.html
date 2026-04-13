@@ -2,133 +2,477 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>propertier - Mallorca, compraventa, alquiler e inversión con criterio</title>
-  <meta name="description" content="Mallorca. Compraventa, alquiler e inversión con criterio. Menos ruido, más filtro, más claridad documental.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>propertier — Mallorca, compraventa, alquiler e inversión con criterio</title>
+  <meta name="description" content="Mallorca. Compraventa, alquiler e inversión con criterio. Menos ruido, más filtro y más claridad documental.">
+  <meta name="theme-color" content="#101114">
   <style>
     :root {
-      --fg: #111;
-      --muted: #666;
-      --line: #ddd;
-      --bg: #fff;
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --surface-soft: #fbfcfe;
+      --text: #101114;
+      --muted: #667085;
+      --line: #d9dee7;
+      --line-strong: #c7cfdb;
+      --accent: #101114;
+      --accent-soft: #eef2f7;
+      --shadow: 0 10px 30px rgba(16, 17, 20, 0.06);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1080px;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--fg);
-      background: var(--bg);
-      line-height: 1.55;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #ffffff 0%, #f5f7fa 42%, #eef2f7 100%);
+      line-height: 1.6;
     }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site {
+      min-height: 100vh;
+    }
+
     .wrap {
-      max-width: 860px;
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      padding: 36px 18px 60px;
     }
-    .hero, .box {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 16px;
+
+    .topbar {
+      padding: 18px 0;
     }
-    h1, h2, h3 {
-      line-height: 1.1;
-      margin: 0 0 12px;
-    }
-    p { margin: 0 0 12px; }
-    ul { margin: 0; padding-left: 18px; }
-    li { margin-bottom: 8px; }
-    .muted { color: var(--muted); }
-    .cta-row {
+
+    .topbar-inner {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 14px;
     }
-    .btn {
-      display: inline-block;
-      padding: 11px 14px;
-      border: 1px solid var(--fg);
-      border-radius: 10px;
-      color: var(--fg);
+
+    .nav a {
       text-decoration: none;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
-    }
-    .footer {
-      margin-top: 24px;
       color: var(--muted);
       font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+      background: var(--accent-soft);
+      outline: none;
+    }
+
+    .hero {
+      padding: 20px 0 14px;
+    }
+
+    .hero-card,
+    .section-card,
+    .feature-card {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      max-width: 62ch;
+      font-size: 1.06rem;
+      color: #243041;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 24px 0 0;
+    }
+
+    .meta-box {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .meta-label {
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-value {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, color 0.16s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(16, 17, 20, 0.14);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #1b1d22;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--accent-soft);
+    }
+
+    .section {
+      padding: 10px 0;
+    }
+
+    .section-card {
+      padding: 26px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 22px;
+    }
+
+    .feature-card p:last-child,
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+      color: #243041;
+    }
+
+    .list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      top: 0.62em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--text);
+      opacity: 0.85;
+    }
+
+    .contact-box {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .contact-email:hover,
+    .contact-email:focus-visible {
+      background: var(--accent-soft);
+      outline: none;
+    }
+
+    .footer {
+      padding: 20px 0 44px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-card,
+      .section-card,
+      .feature-card {
+        padding: 20px;
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .cta-row {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <h1>Mallorca. Compraventa, alquiler e inversión con criterio.</h1>
-      <p class="muted">Menos ruido, más filtro, más claridad documental.</p>
-      <p>Trabajo pocas operaciones, bien filtradas, con foco en encaje real, documentación mínima y ejecución seria.</p>
-      <div class="cta-row">
-        <a class="btn" href="mailto:daniel.sedano.moreno@gmail.com?subject=Quiero%20vender%20una%20propiedad%20en%20Mallorca">Escribir para vender</a>
-        <a class="btn" href="mailto:daniel.sedano.moreno@gmail.com?subject=Quiero%20comprar%20o%20invertir%20en%20Mallorca">Escribir para comprar o invertir</a>
-        <a class="btn" href="mailto:daniel.sedano.moreno@gmail.com?subject=Te%20cuento%20mi%20operaci%C3%B3n%20en%20Mallorca&body=Tipo%20de%20operaci%C3%B3n%3A%0AZona%20o%20propiedad%3A%0APresupuesto%20o%20rango%3A%0AObjetivo%3A%0APlazo%3A">Cuéntame tu operación</a>
+  <div class="site">
+    <header class="topbar">
+      <div class="wrap">
+        <div class="topbar-inner">
+          <a class="brand" href="#">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>propertier</span>
+          </a>
+
+          <nav class="nav" aria-label="Navegación principal">
+            <a href="#que-hago">Qué hago</a>
+            <a href="#encaje">Encaje</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+        </div>
       </div>
-    </section>
+    </header>
 
-    <section class="box">
-      <h2>Qué hago</h2>
-      <ul>
-        <li>compraventa con filtro real</li>
-        <li>búsqueda de alquiler con criterio</li>
-        <li>análisis de oportunidades en Mallorca</li>
-        <li>acompañamiento para compra e inversión</li>
-      </ul>
-    </section>
+    <main class="wrap">
+      <section class="hero">
+        <div class="hero-card">
+          <span class="eyebrow">Mallorca · operador inmobiliario</span>
+          <h1>Compraventa, alquiler e inversión con criterio.</h1>
+          <p class="lead">Menos ruido, más filtro y más claridad documental. Trabajo pocas operaciones, bien filtradas, con foco en encaje real, documentación mínima y ejecución seria.</p>
 
-    <section class="grid">
-      <article class="box">
-        <h3>Filtro primero</h3>
-        <p>No avanzo por volumen. Avanzo cuando hay encaje real.</p>
-      </article>
-      <article class="box">
-        <h3>Documentación mínima</h3>
-        <p>Sin base documental razonable no tiene sentido mover una operación.</p>
-      </article>
-      <article class="box">
-        <h3>Menos ruido</h3>
-        <p>Menos visitas sin sentido. Más decisiones claras.</p>
-      </article>
-      <article class="box">
-        <h3>Enfoque inversor</h3>
-        <p>Precio, potencial, documentación y lógica económica antes de entusiasmarse.</p>
-      </article>
-    </section>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Quiero%20vender%20una%20propiedad%20en%20Mallorca">Escribir para vender</a>
+            <a class="btn btn-secondary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Quiero%20comprar%20o%20invertir%20en%20Mallorca">Comprar o invertir</a>
+            <a class="btn btn-secondary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Te%20cuento%20mi%20operaci%C3%B3n%20en%20Mallorca&body=Tipo%20de%20operaci%C3%B3n%3A%0AZona%20o%20propiedad%3A%0APresupuesto%20o%20rango%3A%0AObjetivo%3A%0APlazo%3A">Cuéntame tu operación</a>
+          </div>
 
-    <section class="box">
-      <h2>Con quién encaja</h2>
-      <p>Propietarios, compradores e inversores que quieren una operación más seria, más clara y menos ruidosa.</p>
-      <p><strong>No trabajo operaciones ambiguas, sin documentación mínima o sin encaje real.</strong></p>
-    </section>
+          <div class="hero-meta" aria-label="Principios de trabajo">
+            <div class="meta-box">
+              <p class="meta-label">Forma de trabajo</p>
+              <p class="meta-value">Pocas operaciones, bien filtradas</p>
+            </div>
+            <div class="meta-box">
+              <p class="meta-label">Prioridad</p>
+              <p class="meta-value">Encaje real y documentación mínima</p>
+            </div>
+            <div class="meta-box">
+              <p class="meta-label">Objetivo</p>
+              <p class="meta-value">Menos visitas inútiles, mejores decisiones</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section id="contacto" class="box">
-      <h2>Contacto</h2>
-      <p>Escríbeme con esto:</p>
-      <ul>
-        <li>si vendes, compras o inviertes</li>
-        <li>zona o tipo de propiedad</li>
-        <li>presupuesto o rango</li>
-        <li>objetivo: vivir, alquilar, invertir o vender</li>
-        <li>plazo aproximado</li>
-      </ul>
-      <p style="margin-top:14px;">
-        Email: <a href="mailto:daniel.sedano.moreno@gmail.com?subject=Operacion%20inmobiliaria%20en%20Mallorca&body=Tipo%20de%20operaci%C3%B3n%3A%0AZona%20o%20propiedad%3A%0APresupuesto%20o%20rango%3A%0AObjetivo%3A%0APlazo%3A">daniel.sedano.moreno@gmail.com</a>
-      </p>
-    </section>
+      <section id="que-hago" class="section">
+        <div class="section-card">
+          <h2>Qué hago</h2>
+          <ul class="list">
+            <li>Compraventa con filtro real</li>
+            <li>Búsqueda de alquiler con criterio</li>
+            <li>Análisis de oportunidades en Mallorca</li>
+            <li>Acompañamiento para compra e inversión</li>
+          </ul>
+        </div>
+      </section>
 
-    <p class="footer">Sitio público mínimo. La operación real vive en el repo privado.</p>
-  </main>
+      <section class="section">
+        <div class="grid">
+          <article class="feature-card">
+            <h3>Filtro primero</h3>
+            <p>No avanzo por volumen. Avanzo cuando hay encaje real.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Documentación mínima</h3>
+            <p>Sin base documental razonable no tiene sentido mover una operación.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Menos ruido</h3>
+            <p>Menos visitas sin sentido. Más decisiones claras.</p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Enfoque inversor</h3>
+            <p>Precio, potencial, documentación y lógica económica antes de entusiasmarse.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="encaje" class="section">
+        <div class="section-card">
+          <h2>Con quién encaja</h2>
+          <p>Propietarios, compradores e inversores que quieren una operación más seria, más clara y menos ruidosa.</p>
+          <p><strong>No trabajo operaciones ambiguas, sin documentación mínima o sin encaje real.</strong></p>
+        </div>
+      </section>
+
+      <section id="contacto" class="section">
+        <div class="section-card contact-box">
+          <div>
+            <h2>Contacto</h2>
+            <p>Escríbeme con esto:</p>
+            <ul class="list">
+              <li>Si vendes, compras o inviertes</li>
+              <li>Zona o tipo de propiedad</li>
+              <li>Presupuesto o rango</li>
+              <li>Objetivo: vivir, alquilar, invertir o vender</li>
+              <li>Plazo aproximado</li>
+            </ul>
+          </div>
+
+          <div>
+            <a class="contact-email" href="mailto:daniel.sedano.moreno@gmail.com?subject=Operacion%20inmobiliaria%20en%20Mallorca&body=Tipo%20de%20operaci%C3%B3n%3A%0AZona%20o%20propiedad%3A%0APresupuesto%20o%20rango%3A%0AObjetivo%3A%0APlazo%3A">
+              daniel.sedano.moreno@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer">Sitio público mínimo. La operación real vive en el repo privado.</p>
+    </main>
+  </div>
 </body>
 </html>
