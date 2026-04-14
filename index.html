@@ -3,538 +3,131 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>writer — reescritura, adaptación ES/EN y documentación útil</title>
-  <meta name="description" content="Packs cerrados de reescritura, adaptación ES/EN y documentación útil. Trabajo async, precio fijo, cobro antes y entrega rápida.">
+  <title>dsm00000000 — sistemas mínimos para operar mejor</title>
+  <meta name="description" content="Sistemas mínimos para vender, operar, filtrar y decidir mejor. Writer y propertier.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#101114">
   <style>
     :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --surface-soft: #fbfcfe;
-      --text: #101114;
-      --muted: #667085;
-      --line: #d9dee7;
-      --line-strong: #c7cfdb;
-      --accent: #101114;
-      --accent-soft: #eef2f7;
-      --shadow: 0 10px 30px rgba(16, 17, 20, 0.06);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --max: 1080px;
+      --bg:#f5f7fa; --surface:#fff; --soft:#fbfcfe; --text:#101114;
+      --muted:#667085; --line:#d9dee7; --accent:#101114;
+      --shadow:0 10px 30px rgba(16,17,20,.06); --radius:18px; --max:1080px;
     }
-
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--text);
+      background:radial-gradient(circle at top left,#fff 0%,#f5f7fa 42%,#eef2f7 100%);
+      line-height:1.6;
     }
-
-    html {
-      scroll-behavior: smooth;
+    a{color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+    header{padding:18px 0}
+    .bar,.card,.item{
+      background:linear-gradient(180deg,var(--surface),var(--soft));
+      border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
     }
-
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, #ffffff 0%, #f5f7fa 42%, #eef2f7 100%);
-      line-height: 1.6;
+    .bar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:14px 18px}
+    .brand{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:700}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--accent)}
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav a{font-size:14px;text-decoration:none;color:var(--muted);padding:8px 10px;border-radius:10px}
+    nav a:hover,nav a:focus-visible{background:#eef2f7;color:var(--text);outline:none}
+    main{padding:20px 0 44px}
+    .card{padding:34px;margin-bottom:16px}
+    .eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    h1{font-size:clamp(2rem,4vw,3.7rem);line-height:1.1;letter-spacing:-.03em;max-width:13ch;margin:14px 0}
+    h2{font-size:clamp(1.35rem,2vw,1.8rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 12px}
+    h3{margin:0 0 8px;font-size:1.1rem}
+    p{margin:0 0 14px}
+    .lead{max-width:64ch;font-size:1.06rem;color:#243041}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:16px}
+    .item{padding:24px}
+    .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:46px;
+      padding:12px 16px;border-radius:12px;border:1px solid var(--accent);
+      text-decoration:none;font-weight:700;
     }
-
-    a {
-      color: inherit;
-    }
-
-    .site {
-      min-height: 100vh;
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      padding: 18px 0;
-    }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 18px;
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-mark {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--accent);
-      flex: 0 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      padding: 8px 10px;
-      border-radius: 10px;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      color: var(--text);
-      background: var(--accent-soft);
-      outline: none;
-    }
-
-    .hero {
-      padding: 20px 0 14px;
-    }
-
-    .hero-card,
-    .section-card,
-    .feature-card {
-      background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card {
-      padding: 34px;
-    }
-
-    .section {
-      padding: 10px 0;
-    }
-
-    .section-card {
-      padding: 26px;
-    }
-
-    .feature-card {
-      padding: 22px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      margin: 0 0 12px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      max-width: 12ch;
-    }
-
-    h2 {
-      font-size: clamp(1.35rem, 2vw, 1.8rem);
-    }
-
-    h3 {
-      font-size: 1.05rem;
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    .lead {
-      max-width: 62ch;
-      font-size: 1.06rem;
-      color: #243041;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .kicker {
-      margin: 10px 0 0;
-      font-weight: 700;
-      color: #243041;
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin: 24px 0 0;
-    }
-
-    .meta-box {
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #fff;
-    }
-
-    .meta-label {
-      margin: 0 0 4px;
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .meta-value {
-      margin: 0;
-      font-weight: 600;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, color 0.16s ease;
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translateY(-1px);
-      outline: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 8px 18px rgba(16, 17, 20, 0.14);
-    }
-
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background: #1b1d22;
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-    }
-
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      background: var(--accent-soft);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .list li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 10px;
-      color: #243041;
-    }
-
-    .list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .list li::before {
-      content: "";
-      position: absolute;
-      top: 0.62em;
-      left: 0;
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--text);
-      opacity: 0.85;
-    }
-
-    .price {
-      font-weight: 700;
-      margin-top: 8px;
-    }
-
-    .contact-box {
-      display: grid;
-      gap: 18px;
-    }
-
-    .contact-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-      text-decoration: none;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-weight: 600;
-    }
-
-    .contact-email:hover,
-    .contact-email:focus-visible {
-      background: var(--accent-soft);
-      outline: none;
-    }
-
-    .footer {
-      padding: 20px 0 44px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media (max-width: 720px) {
-      .topbar-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero-card,
-      .section-card,
-      .feature-card {
-        padding: 20px;
-      }
-
-      .wrap {
-        width: min(var(--max), calc(100% - 20px));
-      }
-
-      .cta-row {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
+    .btn:hover,.btn:focus-visible{transform:translateY(-1px);outline:none}
+    .primary{background:var(--accent);color:#fff}
+    .secondary{background:#fff}
+    ul{margin:0;padding:0;list-style:none}
+    li{position:relative;padding-left:18px;margin-bottom:10px;color:#243041}
+    li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--text)}
+    footer{color:var(--muted);font-size:14px;padding-top:6px}
+    @media(max-width:720px){
+      .bar{align-items:flex-start;flex-direction:column}
+      .card,.item{padding:20px}
+      .wrap{width:min(var(--max),calc(100% - 20px))}
+      .btn{width:100%}
     }
   </style>
 </head>
 <body>
-  <div class="site">
-    <header class="topbar">
-      <div class="wrap">
-        <div class="topbar-inner">
-          <a class="brand" href="#">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span>writer</span>
-          </a>
-
-          <nav class="nav" aria-label="Navegación principal">
-            <a href="#packs">Packs</a>
-            <a href="#encaje">Encaje</a>
-            <a href="#contacto">Contacto</a>
-          </nav>
-        </div>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="./">
+          <span class="dot" aria-hidden="true"></span>
+          <span>dsm00000000</span>
+        </a>
+        <nav aria-label="Navegación principal">
+          <a href="#sistemas">Sistemas</a>
+          <a href="#criterio">Criterio</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="wrap">
-      <section class="hero">
-        <div class="hero-card">
-          <span class="eyebrow">Trabajo escrito · no consultoría abierta</span>
-          <h1>Texto claro para vender, explicar y ordenar mejor.</h1>
-          <p class="lead">Trabajo con negocios pequeños, micro-SaaS, operadores individuales y equipos ligeros que ya tienen una pieza o un proceso, pero no está lo bastante claro para funcionar bien.</p>
-          <p>Ofrezco tres packs cerrados: reescritura, adaptación ES/EN y documentación útil. Todo async, con precio fijo, cobro antes y una revisión razonable.</p>
-          <p><strong>Te respondo por email con alcance, precio y plazo cerrados si me envías una pieza o un proceso concreto.</strong></p>
-          <p class="muted">Respuesta inicial: dentro de 24 horas laborables.</p>
+  <main class="wrap">
+    <section class="card">
+      <span class="eyebrow">Operación mínima · decisiones claras</span>
+      <h1>Sistemas pequeños para operar mejor.</h1>
+      <p class="lead">Construyo herramientas mínimas para vender, filtrar, ejecutar y decidir sin inflar la arquitectura.</p>
+      <p>No son suites. No son dashboards bonitos. Son sistemas privados y operables para mover trabajo real.</p>
 
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Consulta%20sobre%20pack%20de%20writing">Escribir por email</a>
-            <a class="btn btn-secondary" href="#packs">Ver packs</a>
-          </div>
+      <div class="btns">
+        <a class="btn primary" href="./writer.html">Ver writer</a>
+        <a class="btn secondary" href="./propertier.html">Ver propertier</a>
+      </div>
+    </section>
 
-          <p class="kicker">No escribo bonito. Escribo para que se entienda mejor, sirva mejor y se entregue sin fricción.</p>
+    <section id="sistemas" class="grid">
+      <article class="item">
+        <h3>writer</h3>
+        <p class="muted">Packs cerrados de reescritura, adaptación ES/EN y documentación útil.</p>
+        <a class="btn secondary" href="./writer.html">Abrir writer</a>
+      </article>
 
-          <div class="hero-meta" aria-label="Principios de trabajo">
-            <div class="meta-box">
-              <p class="meta-label">Formato</p>
-              <p class="meta-value">Trabajo async y por bloques cerrados</p>
-            </div>
-            <div class="meta-box">
-              <p class="meta-label">Cobro</p>
-              <p class="meta-value">Precio fijo y cobro antes de ejecutar</p>
-            </div>
-            <div class="meta-box">
-              <p class="meta-label">Entrega</p>
-              <p class="meta-value">Entrega rápida y revisión razonable</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <article class="item">
+        <h3>propertier</h3>
+        <p class="muted">Operación inmobiliaria en Mallorca: captar mejor, filtrar mejor y decidir mejor.</p>
+        <a class="btn secondary" href="./propertier.html">Abrir propertier</a>
+      </article>
+    </section>
 
-      <section class="section">
-        <div class="section-card">
-          <h2>Cómo trabajo</h2>
-          <ul class="list">
-            <li>Brief mínimo por escrito</li>
-            <li>Alcance cerrado</li>
-            <li>Precio fijo</li>
-            <li>Cobro por Stripe Payment Link antes de ejecutar</li>
-            <li>Entrega por Google Doc</li>
-            <li>Entrega rápida</li>
-            <li>Una revisión razonable</li>
-          </ul>
-        </div>
-      </section>
+    <section id="criterio" class="card">
+      <h2>Criterio</h2>
+      <ul>
+        <li>mínimo antes que complejo</li>
+        <li>operable antes que decorativo</li>
+        <li>datos privados fuera de la parte pública</li>
+        <li>una herramienta por problema real</li>
+        <li>si no ayuda a vender, cerrar, entregar o decidir, sobra</li>
+      </ul>
+    </section>
 
-      <section id="packs" class="section">
-        <div class="grid" aria-label="packs disponibles">
-          <article class="feature-card">
-            <h3>Rewrite / Cleanup Pack</h3>
-            <p>Reescritura y limpieza de una pieza concreta ya existente para volverla más clara, directa y usable.</p>
-            <p class="muted">Ideal para hero, landing corta, página de servicios, email importante, FAQ visible o bloque de venta.</p>
-            <p class="price">Desde 90 € · 24–48 h</p>
-          </article>
+    <section id="contacto" class="card">
+      <h2>Contacto</h2>
+      <p>Para propuestas concretas, escribe por email.</p>
+      <a class="btn primary" href="mailto:daniel.sedano.moreno@gmail.com">daniel.sedano.moreno@gmail.com</a>
+    </section>
 
-          <article class="feature-card">
-            <h3>Adaptation Pack ES/EN</h3>
-            <p>Adaptación natural entre español e inglés, sin traducción literal ni tono robótico.</p>
-            <p class="muted">Ideal para landings, emails, onboarding, FAQs y mensajes automáticos.</p>
-            <p class="price">Desde 140 € · 48–72 h</p>
-          </article>
-
-          <article class="feature-card">
-            <h3>Documentation Pack</h3>
-            <p>Conversión de conocimiento disperso o de un proceso repetido en documentación clara y útil para uso real.</p>
-            <p class="muted">Ideal para SOP simple, onboarding operativo, checklist, FAQ interna o guía interna.</p>
-            <p class="price">Desde 180 € · 72–96 h</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-card">
-          <h2>Ejemplos de bloques que sí hago</h2>
-          <ul class="list">
-            <li>Hero</li>
-            <li>Subtítulo y CTA</li>
-            <li>Página de servicios</li>
-            <li>Email clave</li>
-            <li>FAQ</li>
-            <li>Onboarding</li>
-            <li>SOP simple</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="encaje" class="section">
-        <div class="two-col">
-          <div class="section-card">
-            <h2>Sí</h2>
-            <ul class="list">
-              <li>Una pieza concreta</li>
-              <li>Un bloque cerrado</li>
-              <li>Texto listo para usar</li>
-              <li>Trabajo async</li>
-            </ul>
-          </div>
-
-          <div class="section-card">
-            <h2>No</h2>
-            <ul class="list">
-              <li>Consultoría abierta</li>
-              <li>Discovery infinito</li>
-              <li>Proyectos ambiguos sin alcance claro</li>
-              <li>Calls como flujo normal</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-card">
-          <h2>Qué necesito para darte una propuesta cerrada</h2>
-          <p><strong>Escríbeme con: pieza o proceso + objetivo + idioma + fecha deseada.</strong></p>
-          <ul class="list">
-            <li>Pieza o proceso exacto</li>
-            <li>Objetivo visible</li>
-            <li>Material base disponible</li>
-            <li>Idioma</li>
-            <li>Fecha deseada</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-card">
-          <h2>Filtro</h2>
-          <p><strong>No trabajo consultoría abierta, discovery infinito ni proyectos ambiguos sin alcance claro.</strong></p>
-          <p class="muted">Encaja mejor con negocios pequeños, micro-SaaS, freelancers con oferta visible, estudios ligeros y equipos pequeños que necesitan resolver una pieza concreta o documentar mejor un proceso.</p>
-        </div>
-      </section>
-
-      <section id="contacto" class="section">
-        <div class="section-card contact-box">
-          <div>
-            <h2>Contacto</h2>
-            <p>Envíame una pieza concreta o un proceso concreto. Respondo con alcance, precio, método de cobro y plazo cerrados.</p>
-          </div>
-
-          <div>
-            <a class="contact-email" href="mailto:daniel.sedano.moreno@gmail.com">
-              daniel.sedano.moreno@gmail.com
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <p class="footer">Sitio público mínimo para GitHub Pages. La operación real, los datos y la lógica viven aparte en el repo privado.</p>
-    </main>
-  </div>
+    <footer>
+      Site público mínimo. La operación real vive en repos privados y bases locales.
+    </footer>
+  </main>
 </body>
 </html>
