@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fixer — Fix Blocks para claridad, acción y conversión</title>
-  <meta name="description" content="Arreglo landings, emails, anuncios, onboarding, FAQs y documentación que no están claros, no convierten o no se usan bien. Trabajo async, precio cerrado, cobro antes y entrega rápida.">
+  <title>Fixer — Fix Blocks para arreglar piezas que no convierten</title>
+  <meta name="description" content="Arreglo landings, heroes, CTAs, emails, FAQs, onboarding y documentación que no están claros, no empujan acción o no se usan bien. Trabajo async, precio cerrado, cobro antes y entrega rápida.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#101114">
 
@@ -24,7 +24,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -106,11 +105,8 @@
     }
 
     .hero-card { padding: 34px; }
-
     .section { padding: 10px 0; }
-
     .section-card { padding: 26px; }
-
     .feature-card { padding: 22px; }
 
     .eyebrow {
@@ -131,11 +127,10 @@
 
     h1 {
       font-size: clamp(2rem, 4vw, 3.5rem);
-      max-width: 14ch;
+      max-width: 12ch;
     }
 
     h2 { font-size: clamp(1.35rem, 2vw, 1.85rem); }
-
     h3 { font-size: 1.05rem; }
 
     p { margin: 0 0 14px; }
@@ -152,6 +147,15 @@
       margin-top: 12px;
       font-weight: 800;
       color: #243041;
+    }
+
+    .alert {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      font-weight: 700;
     }
 
     .cta-row {
@@ -264,6 +268,22 @@
       margin-top: 8px;
     }
 
+    .example-box {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .example-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
     .contact-email {
       display: inline-flex;
       width: fit-content;
@@ -325,6 +345,7 @@
 
         <nav class="nav" aria-label="Navegación principal">
           <a href="#blocks">Fix Blocks</a>
+          <a href="#ejemplo">Ejemplo</a>
           <a href="#encaje">Encaje</a>
           <a href="#contacto">Contacto</a>
         </nav>
@@ -337,24 +358,26 @@
       <div class="hero-card">
         <span class="eyebrow">Async clarity & conversion fixes</span>
 
-        <h1>Arreglo piezas que no están claras, no convierten o no se usan bien.</h1>
+        <h1>Tu landing, emails o CTA no convierten porque no están claros.</h1>
 
         <p class="lead">
-          Me envías una landing, email, anuncio, FAQ, onboarding, documentación o proceso escrito. Te devuelvo una versión más clara, más accionable y lista para usar.
+          Arreglo una pieza concreta para que se entienda más rápido, empuje mejor la acción y sea más usable.
         </p>
 
         <p>
-          Trabajo async, sin consultoría abierta y sin calls por defecto. Cada trabajo es un Fix Block: diagnóstico breve, precio cerrado, cobro antes, mejora concreta, entrega rápida y una revisión razonable.
+          Me envías una landing, hero, CTA, email, FAQ, onboarding, documentación o proceso escrito. Te devuelvo una versión corregida, lista para usar y sin abrir un proyecto ambiguo.
         </p>
 
-        <p class="muted">Respuesta inicial: dentro de 24 horas laborables.</p>
+        <div class="alert">
+          Si la pieza no es clara, estás perdiendo respuesta sin saberlo.
+        </div>
 
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Fixer%20-%20pieza%20para%20revisar">Enviar pieza para revisar</a>
-          <a class="btn btn-secondary" href="#blocks">Ver Fix Blocks</a>
+          <a class="btn btn-secondary" href="#ejemplo">Ver ejemplo de fix</a>
         </div>
 
-        <p class="kicker">No vendo CRO, copy, IA, code o automatización por separado. Vendo fixes concretos.</p>
+        <p class="kicker">Sin calls por defecto. Sin consultoría abierta. Sin rehacerlo todo si basta un arreglo concreto.</p>
 
         <div class="hero-meta">
           <div class="meta-box">
@@ -370,6 +393,45 @@
             <p class="meta-value">Google Doc + revisión razonable</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-card">
+        <h2>Esto encaja si</h2>
+        <ul class="list">
+          <li>Tienes una landing pero no termina de convertir</li>
+          <li>Tienes emails pero no empujan acción suficiente</li>
+          <li>Tienes un CTA, FAQ u onboarding que genera fricción</li>
+          <li>Tienes una pieza usable, pero claramente mejorable</li>
+          <li>Quieres mover algo concreto sin abrir un proyecto grande</li>
+        </ul>
+
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Fixer%20-%20pieza%20para%20revisar">Mandar pieza ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ejemplo" class="section">
+      <div class="section-card">
+        <h2>Ejemplo de Fix Block</h2>
+
+        <div class="two-col">
+          <div class="example-box">
+            <div class="example-label">Antes</div>
+            <p>“We help companies grow better”</p>
+          </div>
+
+          <div class="example-box">
+            <div class="example-label">Después</div>
+            <p>“Automatiza el seguimiento de leads y cierra más demos sin perder tiempo manual”</p>
+          </div>
+        </div>
+
+        <p class="lead" style="margin-top:16px;">
+          El cambio no está en escribir más bonito. Está en hacer la pieza más específica, más clara y más orientada a acción.
+        </p>
       </div>
     </section>
 
@@ -396,12 +458,16 @@
         <ul class="list">
           <li>Me envías una pieza o proceso concreto</li>
           <li>Hago un diagnóstico breve</li>
-          <li>Te doy precio y plazo cerrados</li>
+          <li>Te digo si encaja y qué tamaño tiene</li>
+          <li>Te paso precio y plazo cerrados</li>
           <li>Pagas antes de empezar</li>
-          <li>Arreglo la pieza</li>
-          <li>Entrego por Google Doc</li>
-          <li>Si tiene sentido, propongo el siguiente fix</li>
+          <li>Arreglo la pieza y la entrego en Google Doc</li>
+          <li>Si tiene sentido, te propongo el siguiente fix</li>
         </ul>
+
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Fixer%20-%20pieza%20para%20revisar">Enviar pieza para diagnóstico</a>
+        </div>
       </div>
     </section>
 
@@ -409,24 +475,28 @@
       <div class="grid">
         <article class="feature-card">
           <h3>Small Fix</h3>
-          <p>Para una pieza pequeña o bloque concreto.</p>
+          <p>Para arreglar una fricción concreta y moverlo rápido.</p>
           <p class="muted">Hero, CTA, email corto, anuncio o FAQ pequeña.</p>
           <p class="price">120 €</p>
         </article>
 
         <article class="feature-card">
           <h3>Medium Fix</h3>
-          <p>Para una pieza completa de tamaño medio.</p>
+          <p>Para piezas que ya afectan una decisión completa.</p>
           <p class="muted">Landing corta, página de servicios, email largo, onboarding simple o FAQ completa.</p>
           <p class="price">240 €</p>
         </article>
 
         <article class="feature-card">
           <h3>Large Fix</h3>
-          <p>Para una pieza grande o proceso más amplio.</p>
+          <p>Para ordenar una pieza grande o un proceso más amplio.</p>
           <p class="muted">Landing completa, secuencia de emails, documentación operativa, onboarding completo o proceso interno escrito.</p>
           <p class="price">480 €</p>
         </article>
+      </div>
+
+      <div class="cta-row" style="margin-top:16px;">
+        <a class="btn btn-primary" href="mailto:daniel.sedano.moreno@gmail.com?subject=Fixer%20-%20pieza%20para%20revisar">Quiero revisar una pieza</a>
       </div>
     </section>
 
@@ -436,8 +506,8 @@
           <h2>Sí encaja</h2>
           <ul class="list">
             <li>Una pieza concreta</li>
-            <li>Un proceso escrito concreto</li>
             <li>Un problema claro</li>
+            <li>Material base disponible</li>
             <li>Una mejora cerrada</li>
             <li>Trabajo async</li>
             <li>Precio fijo</li>
@@ -477,7 +547,19 @@
     <section id="contacto" class="section">
       <div class="section-card">
         <h2>Contacto</h2>
-        <p>Si encaja, respondo con alcance, precio, plazo y método de cobro cerrados. Si no encaja, te lo digo sin alargar el proceso.</p>
+        <p>
+          Si tienes una pieza que no está funcionando, envíamela y te digo en 24 horas laborables:
+        </p>
+        <ul class="list">
+          <li>si encaja o no encaja</li>
+          <li>qué cambiaría</li>
+          <li>qué tamaño tiene</li>
+          <li>cuánto cuesta</li>
+        </ul>
+
+        <p>
+          Si no encaja, te lo digo directo. Prefiero eso a abrir un proceso ambiguo.
+        </p>
 
         <a class="contact-email" href="mailto:daniel.sedano.moreno@gmail.com?subject=Fixer%20-%20pieza%20para%20revisar">
           daniel.sedano.moreno@gmail.com
@@ -486,7 +568,7 @@
     </section>
 
     <p class="footer">
-      Fixer existe para captar, cerrar, cobrar, arreglar, entregar y repetir sin fricción.
+      Fixer existe para detectar fricción, arreglarla rápido y convertir una pieza confusa en una pieza usable.
     </p>
   </main>
 </body>
